@@ -12,14 +12,23 @@ public class Teste {
 
         Scanner scanner = new Scanner(System.in);
 
+        int acao = 0;
+
+        while (acao != 5){
+
+
+            System.out.println(" ");
+            System.out.println(" ");
         System.out.println("Digite o número correspondente à ação que deseja realizar");
         System.out.println("1 - Consultar livro");
         System.out.println("2 - Cadastrar livro");
         System.out.println("3 - Consultar coleção");
         System.out.println("4 - Cadastrar coleção");
-        System.out.println("5 - Finalizar");
+        System.out.println("5 - Efetuar venda");
+        System.out.println("6 - Finalizar");
+        acao = scanner.nextInt();
 
-        int acao = scanner.nextInt();
+
 
         if (acao == 1){
 
@@ -69,27 +78,61 @@ public class Teste {
         if (acao == 4){
 
             //Cadastrar coleção
-            System.out.println("Digite o código da coleção");
-            colecao.setCodigoColecao(scanner.next());
-            System.out.println("Digite a descrição");
-            colecao.setDescricaoColecao(scanner.next());
-            System.out.println("Digite o preço");
-            colecao.setPrecoColecao(scanner.nextFloat());
-            System.out.println("Digite o código do livro que deseja adicionar a coleção");
-            Livro livroColecao = livraria.consultarLivroPorCodigo(scanner.next());
-            colecao.cadastrarLivroNaColecao(livroColecao);
-            System.out.println("Deseja adicionar outro livro à coleçao?");
-            //Tem que colocar o While pra poder adicionar mais livros
+
+
+
+            int adicionarMaisLivros = 0;
+            while (adicionarMaisLivros != 2){
+
+                System.out.println("1 - Adicionar livro");
+                System.out.println("2 - Encerrar");
+
+                adicionarMaisLivros = scanner.nextInt();
+
+                if (adicionarMaisLivros == 1){
+
+                    System.out.println("Digite o código da coleção");
+                    colecao.setCodigoColecao(scanner.next());
+                    System.out.println("Digite a descrição");
+                    colecao.setDescricaoColecao(scanner.next());
+                    System.out.println("Digite o preço");
+                    colecao.setPrecoColecao(scanner.nextFloat());
+                    System.out.println("Digite o código do livro que deseja adicionar a coleção");
+                    Livro livroColecao = livraria.consultarLivroPorCodigo(scanner.next());
+                    colecao.cadastrarLivroNaColecao(livroColecao);
+
+                }
+                if (adicionarMaisLivros == 2) {
+                    System.out.println("Cadastro de coleção finalizado");
+                }
+
+                if (acao == 5){
+                    System.out.println("Digite o código do livro que deseja comprar");
+                    //Não imprime nada e finaliza
+
+
+                }
+
+                if (acao == 6){
+                    System.out.println("Sistema finalizado");
+                    //Também não imprime nada e finaliza
+                }
+
+
+
+                }
+
+
+
+
+
+            }
+
+
+
 
 
         }
-
-
-
-
-
-
-
-
     }
+
 }
